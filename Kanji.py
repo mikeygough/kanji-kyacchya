@@ -10,6 +10,10 @@ class Kanji(GameObject):
     self.dx = 0
     self.dy = 0
     self.reset()
+    self.image = image
+    
+  def setImage(self, value):
+      self.image = value
 
   def move(self):
     self.x += self.dx
