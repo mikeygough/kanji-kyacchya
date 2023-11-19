@@ -24,6 +24,14 @@ to switch between easy and difficult mode simply uncomment the mode you prefer i
 
 https://github.com/mikeygough/kanji-kyacchya/assets/26821806/78207891-b19b-4426-bd5c-55c9e6accb65
 
+### Reflections...
+
+* currently game instantiation is manual. a data.json file contains all game kanji. this is updated manually as are the images which represent a kanji. in the future i'd love to incorporate an image generator library (loop through data, if image doesn't exist generate both easy and difficult mode images)
+
+* while distinguishing is important for understanding kanji it's also important to know readings & meanings. a mode which prompts users for the readings / meanings could aid in retention.
+
+* a wani-kani plugin that gets each users unique 'leeches' could be a hit with the wk community.
+
 ### Reference:
 
 #### virtual environments
