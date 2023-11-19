@@ -3,9 +3,9 @@ kanji-kyacchya is a pygame built to help japanese language learners better disti
 
 one aspect that makes learning kanji so difficult is how similar they can be!
 
-take, for instance, __存__ & __在__. they just barely differ and in this instance the two actually have the same meaning (exist).
+take for instance __存__ & __在__. they barely differ and in this example both share the same meaning (exist)!
 
-in kanji-kyacchya, a goal kanji is presented to the user and they must catch that kanji while
+in kanji-kyacchya a goal kanji is presented to the user and they must catch that kanji while
 avoiding the visually similar alternative (and the demons 👹).
 
 to play kanji-kyacchya, clone this repo and install the requirements:
