@@ -20,6 +20,7 @@ with open('./static/data.json', 'r') as file:
 
 # get main kanji
 main_k = choice(data_dict['main'])
+# main_k = '存'
 # get visually-similar kanji
 similar_k = data_dict['similar'][main_k][0]
 
@@ -29,16 +30,14 @@ pygame.font.init()
 
 # configure screen size
 screen = pygame.display.set_mode([WIDTH, HEIGHT])
+# add background image
+background_image = pygame.image.load("./static/background-tatami.png")  # Replace "background.jpg" with your image file
 
 def main(main_k, similar_k):
     # all-sprites group
     all_sprites = pygame.sprite.Group()
     # make demons group
     demon_sprites = pygame.sprite.Group()
-    
-    # make kanji instances
-    main_kanji = Kanji(image=f"./static/{main_k}.png")
-    similar_kanji = Kanji(image=f"./static/{similar_k}.png")
     
     # make player
     player = Player()
@@ -49,7 +48,7 @@ def main(main_k, similar_k):
     # make kanjiboard
     if DIFFICULTY == "hard":
         # configure font
-        kanji_board = KanjiBoard(60, 23, main_k, difficulty=DIFFICULTY)
+        kanji_board = KanjiBoard(80, 23, main_k, difficulty=DIFFICULTY)
         
         # 2 demons
         demon_v = DemonV()
@@ -62,8 +61,10 @@ def main(main_k, similar_k):
         all_sprites.add(demon_v)
         all_sprites.add(demon_h)
         
+        # set image path to difficult
+        image_path = "./static/difficult/"
     else:
-        kanji_board = KanjiBoard(60, 30, main_k, difficulty="easy")
+        kanji_board = KanjiBoard(80, 30, main_k, difficulty="easy")
         
         # 1 demon
         # using kanji class for v and h movements
@@ -74,6 +75,13 @@ def main(main_k, similar_k):
         
         # add to all_sprites group
         all_sprites.add(demon)
+
+        # set image path to easy
+        image_path = "./static/easy/"
+    
+    # make kanji instances
+    main_kanji = Kanji(image=f"{image_path}{main_k}.png")
+    similar_kanji = Kanji(image=f"{image_path}{similar_k}.png")
     
     # add score & kanjiboard to all_sprites group
     all_sprites.add(score)
@@ -108,6 +116,7 @@ def main(main_k, similar_k):
 
         # Clear screen
         screen.fill((255, 255, 255))
+        screen.blit(background_image, (0, 0))
 
         # Move and render Sprites
         for entity in all_sprites:
@@ -128,8 +137,8 @@ def main(main_k, similar_k):
             similar_k = data_dict['similar'][main_k][0]
             
             # make kanji instances
-            main_kanji = Kanji(image=f"./static/{main_k}.png")
-            similar_kanji = Kanji(image=f"./static/{similar_k}.png")
+            main_kanji = Kanji(image=f"{image_path}{main_k}.png")
+            similar_kanji = Kanji(image=f"{image_path}{similar_k}.png")
 
             # add to all_sprites group
             all_sprites.add(main_kanji)

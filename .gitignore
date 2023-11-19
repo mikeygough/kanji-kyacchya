@@ -1,5 +1,6 @@
 env/
 **/.DS_Store
+kanji-creator.pxd
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
