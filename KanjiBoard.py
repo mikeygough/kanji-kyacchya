@@ -2,10 +2,13 @@
 import pygame
 
 class KanjiBoard(pygame.sprite.Sprite):
-    def __init__(self, x, y, kanji):
+    def __init__(self, x, y, kanji, difficulty):
         super().__init__()
         self.kanji = kanji
-        self.font = pygame.font.Font('./static/hiragino-W5.ttc', 30)
+        if difficulty == 'hard':
+            self.font = pygame.font.Font('./static/fonts/hachimarupop.ttf', 30)
+        else:
+            self.font = pygame.font.Font('./static/fonts/hiragino.ttf', 30)
         self.surf = self.font.render(f"{self.kanji}", False, (0, 0, 0))
         self.dx = 0
         self.dy = 0

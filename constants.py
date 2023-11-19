@@ -2,3 +2,6 @@
 LANES = [93, 218, 343]
 WIDTH = 500
 HEIGHT = 500
+
+DIFFICULTY = "easy"
+# DIFFICULTY = "hard"

@@ -42,31 +42,47 @@ def main(main_k, similar_k):
     
     # make player
     player = Player()
-
-    # make demons
-    demon_v = DemonV()
-    demon_h = DemonH()
-    
-    # add to demons group
-    demon_sprites.add(demon_v)
-    demon_sprites.add(demon_h)
     
     # make scoreboard
     score = ScoreBoard(30, 30, 0)
+    
     # make kanjiboard
-    kanji_board = KanjiBoard(60, 35, main_k)
+    if DIFFICULTY == "hard":
+        # configure font
+        kanji_board = KanjiBoard(60, 23, main_k, difficulty=DIFFICULTY)
+        
+        # 2 demons
+        demon_v = DemonV()
+        demon_h = DemonH()
+        
+        # add to demon_sprites group
+        demon_sprites.add(demon_v)
+        demon_sprites.add(demon_h)
+        
+        all_sprites.add(demon_v)
+        all_sprites.add(demon_h)
+        
+    else:
+        kanji_board = KanjiBoard(60, 30, main_k, difficulty="easy")
+        
+        # 1 demon
+        # using kanji class for v and h movements
+        demon = Kanji(image=f"./static/demon.png")
+    
+        # add to demon_sprites group
+        demon_sprites.add(demon)
+        
+        # add to all_sprites group
+        all_sprites.add(demon)
     
     # add score & kanjiboard to all_sprites group
     all_sprites.add(score)
     all_sprites.add(kanji_board)
     
-    
     # add sprites to group
     all_sprites.add(main_kanji)
     all_sprites.add(similar_kanji)
     all_sprites.add(player)
-    all_sprites.add(demon_v)
-    all_sprites.add(demon_h)
 
     # get clock
     clock = pygame.time.Clock()
