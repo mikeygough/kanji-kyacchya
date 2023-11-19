@@ -22,7 +22,7 @@ to switch between easy and difficult mode simply uncomment the mode you prefer i
 
 ### Demo:
 
-
+https://github.com/mikeygough/kanji-kyacchya/assets/26821806/78207891-b19b-4426-bd5c-55c9e6accb65
 
 ### Reference:
 
